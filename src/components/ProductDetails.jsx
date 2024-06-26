@@ -33,7 +33,7 @@ function ProductDetails() {
                   <img
                     src={thumbnail == null ? product.images[0] :thumbnail}
                     alt=""
-                    className="max-w-sm"
+                    className="max-w-sm w-full max-h-[350px]"
                   />
                   <div className="flex items-center gap-2 mb-4">
                       <img onMouseOver={()=>setThumbnail(product.images[0])} className="border cursor-pointer max-w-sm " width={35} src={product.images[0]} alt="" />
