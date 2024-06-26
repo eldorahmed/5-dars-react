@@ -16,7 +16,7 @@ export default function ProductsList({ products }) {
         return (
           <div
             key={product.id}
-            className="inline-block hover:scale-[1.01] transition"
+            className="inline-block hover:scale-[1.01] hover:shadow-xl transition"
           >
             <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
               <CardOverflow>
