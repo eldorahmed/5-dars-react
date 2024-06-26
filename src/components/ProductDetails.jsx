@@ -36,9 +36,9 @@ function ProductDetails() {
                     className="max-w-sm"
                   />
                   <div className="flex items-center gap-2 mb-4">
-                      <img onClick={()=>setThumbnail(product.images[0])} className="border cursor-pointer max-w-sm " width={35} src={product.images[0]} alt="" />
-                      <img onClick={()=>setThumbnail(product.images[1])} className="border cursor-pointer max-w-sm " width={35} src={product.images.length==1? product.images[0]:product.images[1]} alt="" />
-                      <img onClick={()=>setThumbnail(product.images[2])} className="border cursor-pointer max-w-sm " width={35} src={product.images.length==1? product.images[0]:product.images[2]} alt="" />
+                      <img onMouseOver={()=>setThumbnail(product.images[0])} className="border cursor-pointer max-w-sm " width={35} src={product.images[0]} alt="" />
+                      <img onMouseOver={()=>setThumbnail(product.images[1])}  className="border cursor-pointer max-w-sm " width={35} src={product.images.length==1? product.images[0]:product.images[1]} alt="" />
+                      <img onMouseOver={()=>setThumbnail(product.images[2])}  className="border cursor-pointer max-w-sm " width={35} src={product.images.length==1? product.images[0]:product.images[2]} alt="" />
                   </div>
               </div>
               <div className="flex flex-col gap-24">
