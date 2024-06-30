@@ -23,10 +23,10 @@ function ProductDetails() {
   console.log(thumbnail);
 
   return (
-    <div>
+    <div className="w-[1260px] mt-0" >
       {isPending && <Overlay />}
       {product && (
-          <div>
+          <>
           <div className="hero min-h-[50%]">
             <div className="hero-content flex-col lg:flex-row">
               <div className="flex flex-col items-center rounded-lg  shadow-md">
@@ -57,7 +57,7 @@ function ProductDetails() {
             </div>
           </div>
           <p className="max-w-[500px] w-full text-center mx-auto mb-10">{product.description}</p>
-        </div>
+        </>
       )}
       <Link className="btn" to="/">
         All Products
