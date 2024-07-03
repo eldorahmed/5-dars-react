@@ -27,8 +27,8 @@ function Cart() {
             Subtotal: $ {totalAmount.toFixed(2)}
           </p>
           <div>
-            <button className="btn btn-accent mr-1">Checkout</button>
-            <Link to="/" className="btn btn-success">
+            <button className="btn bg-slate-400 mr-1">Checkout</button>
+            <Link to="/" className="btn-custom">
               Continue Shopping
             </Link>
           </div>

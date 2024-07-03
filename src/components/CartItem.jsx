@@ -13,9 +13,9 @@ function CartItem({ data: product }) {
         </h5>
         <p className="text-left text-xl">$ {(Number(product.price)*cartItems[product.id]).toFixed(2)}</p>
         <div className="text-left mt-4">
-          <button onClick={()=>removeFromCart(product.id)} className="bg-red-700 px-2 text-white active:scale-90 transition focus:outline-none"> - </button>
+          <button onClick={()=>removeFromCart(product.id)} className="bg-red-700 rounded-lg px-2 text-white active:scale-90 transition focus:outline-none"> - </button>
           <input className="border-2 w-12 rounded-lg text-center" onChange={(e)=> updateCart(Number(e.target.value),product.id)} value={cartItems[product.id] }/>
-          <button onClick={()=>addToCart(product.id)} className="bg-red-700 px-2 text-white active:scale-90 transition focus:outline-none">
+          <button onClick={()=>addToCart(product.id)} className="bg-red-700 px-2 rounded-lg text-white active:scale-90 transition focus:outline-none">
             {" "}
             +{" "}
           </button>

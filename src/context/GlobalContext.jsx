@@ -1,7 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext, useReducer } from "react";
 import UseFetch from "../hooks/UseFetch";
 
 export const GlobalContext = createContext();
+export const useGlobalContext=()=>{
+  return useContext(GlobalContext)
+}
 
 const getDefaultCarts = () => {
   let cart = {};
@@ -11,9 +14,27 @@ const getDefaultCarts = () => {
   return cart;
 };
 
-export const GlobalContextProvider = ({ children }) => {
-  const { data: products } = UseFetch("https://dummyjson.com/products");
+const reducer = (state, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case "LOG_IN":
+      return { ...state, user: payload };
+    case "LOG_OUT":
+      return { ...state, user: null };
+    case "IS_AUTH_READY":
+      return { ...state, isAuthReady: true };
+      default:
+        return state
+  }
+};
 
+export const GlobalContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, {
+    user: null,
+    isAuthReady: false,
+  });
+
+  const { data: products } = UseFetch("https://dummyjson.com/products");
   const [cartItems, setCartItems] = useState(getDefaultCarts());
 
   const getTotalAmount = () => {
@@ -46,10 +67,17 @@ export const GlobalContextProvider = ({ children }) => {
   const updateCart = (newAmount, itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
-  const contextValue = { cartItems, addToCart, removeFromCart, updateCart,getTotalAmount,getTotalItems };
+  const contextValue = {
+    cartItems,
+    addToCart,
+    removeFromCart,
+    updateCart,
+    getTotalAmount,
+    getTotalItems,
+  };
   console.log(cartItems);
   return (
-    <GlobalContext.Provider value={contextValue}>
+    <GlobalContext.Provider value={{...contextValue,...state,dispatch}}>
       {children}
     </GlobalContext.Provider>
   );

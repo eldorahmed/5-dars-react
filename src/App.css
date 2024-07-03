@@ -1,9 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+
 
 .overlay {
   width: 100%;
@@ -18,4 +13,5 @@
 }
 .overlay span {
   margin-top: 25%;
+  margin-left: 50%;
 }

@@ -7,19 +7,18 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 // import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
-export default function ProductsList({ products }) {
-  const {cartItems, addToCart,removeFromCart}=useContext(GlobalContext)
-  
+export default function ProductsList({ products ,visibleProducts }) {
+  const { cartItems, addToCart } = useContext(GlobalContext);
 
 
   return (
-    <div className="flex flex-wrap gap-8 mx-auto justify-center mt-24">
-      {products.map((product) => {
-        const cartItemAmount=cartItems[product.id]
+    <div className=" container mx-auto px-2 sm:px-10 flex flex-wrap gap-8  justify-center mt-24 max-w-[1380px] ">
+      {products.slice(0, visibleProducts).map((product) => {
+        const cartItemAmount = cartItems[product.id];
         return (
           <div
             key={product.id}
@@ -64,8 +63,13 @@ export default function ProductsList({ products }) {
                 </Typography>
               </CardContent>
               <CardOverflow>
-               <Button onClick={()=>addToCart(product.id)} variant="solid" color="danger" size="lg">
-                  Add to cart {cartItemAmount>0 && <> ({cartItemAmount})</>}
+                <Button
+                  onClick={() => addToCart(product.id)}
+                  variant="solid"
+                  color="danger"
+                  size="lg"
+                >
+                  Add to cart {cartItemAmount > 0 && <> ({cartItemAmount})</>}
                 </Button>
               </CardOverflow>
             </Card>
