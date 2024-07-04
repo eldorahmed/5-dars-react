@@ -16,7 +16,7 @@ export default function ProductsList({ products ,visibleProducts }) {
 
 
   return (
-    <div className=" container mx-auto px-2 sm:px-10 flex flex-wrap gap-8  justify-center mt-24 max-w-[1380px] ">
+    <div className=" container mx-auto px-2 sm:px-10 flex flex-wrap gap-8  justify-center max-w-[1380px] ">
       {products.slice(0, visibleProducts).map((product) => {
         const cartItemAmount = cartItems[product.id];
         return (

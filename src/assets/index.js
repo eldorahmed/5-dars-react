@@ -1,2 +1,3 @@
 import logo from './logo.png'
-export {logo}
+import hero from './hero.svg'
+export {logo, hero}
