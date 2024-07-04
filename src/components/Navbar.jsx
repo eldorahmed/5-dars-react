@@ -39,13 +39,13 @@ function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink className='font-semibold' to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink to="/about">About</NavLink>
+                <NavLink className='font-semibold' to="/about">About</NavLink>
               </li>
               <li>
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink className='font-semibold' to="/contact">Contact</NavLink>
               </li>
             </ul>
           </div>
@@ -56,18 +56,18 @@ function Navbar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <NavLink to="/">Home </NavLink>
+              <Link className='font-semibold' to="/">Home </Link>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <Link className='font-semibold' to="/about">About</Link>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <Link className='font-semibold' to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <p>{user.displayName}</p>
+          <p className="font-medium">{user.displayName}</p>
           <div className="dropdown dropdown-end mr-2">
             <div
               tabIndex={0}
