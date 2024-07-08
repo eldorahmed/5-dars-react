@@ -16,6 +16,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebaseConfig";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Profile from "./components/Profile";
 
 function App() {
   const{user,dispatch,isAuthReady}=useGlobalContext()
@@ -46,6 +47,9 @@ function App() {
       },
         { path: "contact", 
         element: <Contact /> 
+      },
+        { path: "profile", 
+        element: <Profile /> 
       },
       ],
     },

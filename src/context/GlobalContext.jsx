@@ -64,6 +64,9 @@ export const GlobalContextProvider = ({ children }) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
+  const deleteFromCart = (itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: 0 }));
+  };
   const updateCart = (newAmount, itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
@@ -74,6 +77,7 @@ export const GlobalContextProvider = ({ children }) => {
     updateCart,
     getTotalAmount,
     getTotalItems,
+    deleteFromCart,
   };
   console.log(cartItems);
   return (

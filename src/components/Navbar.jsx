@@ -14,11 +14,15 @@ function Navbar() {
   const totalItems = getTotalItems();
 
   return (
-    <div className="container  px-10 max-w-[1380px] sticky top-0 z-20 mx-auto">
+    <div className="container  px-3 sm:px-10 max-w-[1380px] sticky top-0 z-20 mx-auto">
       <div className="  navbar bg-base-100 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden p-0"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -39,30 +43,46 @@ function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink className='font-semibold' to="/">Home</NavLink>
+                <NavLink className="font-semibold" to="/">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink className='font-semibold' to="/about">About</NavLink>
+                <NavLink className="font-semibold" to="/about">
+                  About
+                </NavLink>
               </li>
               <li>
-                <NavLink className='font-semibold' to="/contact">Contact</NavLink>
+                <NavLink className="font-semibold" to="/contact">
+                  Contact
+                </NavLink>
               </li>
             </ul>
           </div>
           <Link to="/" className="  hover:scale-105">
-            <img className="w-24 cursor-pointer" src={logo} alt="LOGO" />
+            <img
+              className="w-16 sm:w-24 cursor-pointer"
+              src={logo}
+              alt="LOGO"
+            />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link className='font-semibold' to="/">Home </Link>
+              <Link className="font-semibold" to="/">
+                Home{" "}
+              </Link>
             </li>
             <li>
-              <Link className='font-semibold' to="/about">About</Link>
+              <Link className="font-semibold" to="/about">
+                About
+              </Link>
             </li>
             <li>
-              <Link className='font-semibold' to="/contact">Contact</Link>
+              <Link className="font-semibold" to="/contact">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
@@ -91,7 +111,9 @@ function Navbar() {
             >
               <li>
                 <a className="justify-between">
-                  Profile
+                  <Link className="pr-20" to="/profile">
+                    Profile
+                  </Link>
                   <span onClick={signOutProfile} className="badge">
                     New
                   </span>

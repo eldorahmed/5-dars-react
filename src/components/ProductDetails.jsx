@@ -23,14 +23,12 @@ function ProductDetails() {
   }, []);
   console.log(product);
   console.log(thumbnail);
-  const cartItemAmount = product&& cartItems[product.id];
+  const cartItemAmount = product && cartItems[product.id];
 
   return (
-      
     <div className="container mx-auto mt-32 max-w-[1380px]">
       {isPending && <Overlay />}
       {product && (
-        
         <>
           <div className="hero min-h-[50%]">
             <div className="hero-content flex-col lg:flex-row">
@@ -81,10 +79,10 @@ function ProductDetails() {
                 </div>
                 <h2 className="text-xl font-semibold">{product.title}</h2>
                 <div className="flex items-center gap-8">
-                  <p className="text-2xl font-bold">{product.price} $</p>
+                  <p className="text-2xl font-bold">${product.price}</p>
                   <button
                     onClick={() => addToCart(product.id)}
-                    className="btn-custom"
+                    className="btn-custom btn-block"
                   >
                     Add to Cart {cartItemAmount > 0 && <> ({cartItemAmount})</>}
                   </button>
