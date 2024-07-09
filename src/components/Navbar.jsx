@@ -3,13 +3,17 @@ import { useGlobalContext } from "../context/GlobalContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import toast from "react-hot-toast";
+import UseFetch from "../hooks/UseFetch";
 import { logo } from "../assets";
+import { FaTrashAlt } from "react-icons/fa";
 function Navbar() {
+  const { data: products } = UseFetch("https://dummyjson.com/products");
   const signOutProfile = async () => {
     await signOut(auth);
     toast.success("See you soon!");
   };
-  const { user, getTotalAmount, getTotalItems } = useGlobalContext();
+  const { cartItems, user, getTotalAmount, getTotalItems, deleteFromCart } =
+    useGlobalContext();
   const totalAmount = getTotalAmount();
   const totalItems = getTotalItems();
 
@@ -156,6 +160,25 @@ function Navbar() {
             >
               <div className="card-body">
                 <span className="text-lg font-bold">{totalItems} Items</span>
+                {products &&
+                  products.map((product) => {
+                    if (cartItems[product.id] !== 0) {
+                      return (
+                        <div className="flex items-center">
+                          <img
+                            className="w-16 h-16"
+                            src={product.thumbnail}
+                            alt=""
+                          />
+                          <p className="text-lg font-semibold">
+                            {" "}
+                            x {cartItems[product.id]}
+                          </p>
+                         
+                        </div>
+                      );
+                    }
+                  })}
                 <span className="text-info">
                   Subtotal: {totalAmount.toFixed(2)} $
                 </span>
